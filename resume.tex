@@ -5,12 +5,25 @@
 \documentclass{resume} % Use the custom resume.cls style
 
 \usepackage[left=0.75in,top=0.52in,right=0.75in,bottom=0.52in]{geometry} % Document margins
-\usepackage[colorlinks=true, linkcolor=black, urlcolor=black]{hyperref}
+\usepackage[colorlinks=true,linkcolor=black,urlcolor=black]{hyperref}
 \usepackage{marvosym}
 \usepackage{graphicx}
+\usepackage{contour}
+\usepackage{ulem}
+
+\normalem
+
+\renewcommand{\ULdepth}{2.4pt}
+\contourlength{0.8pt}
+
+\newcommand{\myuline}[1]{%
+  \uline{\phantom{#1}}%
+  \llap{\contour{white}{#1}}%
+}
+
 
 \name{Irfan Sharif}
-\address{\href{https://irfansharif.io/}{irfansharif.io} \\
+\address{\href{https://irfansharif.io/blog}{irfansharif.io/blog} \\
          \href{mailto:irfan@irfansharif.io}{irfan@irfansharif.io}\ \\
          \href{https://www.linkedin.com/in/irfansharifm}{in/irfansharifm} \\
          \href{https://github.com/irfansharif}{github.com/irfansharif}}
@@ -26,8 +39,6 @@
   {
     \item Experience with distributed systems, ML, storage and search engines,
       file systems, SAT solvers
-    \item Go, C\texttt{++}, C, Java, Python, Rust, Haskell, Ruby; NumPy, SciPy,
-      Pandas, TensorFlow, Keras
   }
   \end{rSummarySection}
 \end{rSection}
@@ -38,7 +49,7 @@
 
 \begin{rSection}{Education}
   \begin{rEducationSection}{University of Waterloo}
-                           {Sept '14 -- Apr '19}
+                           {2014 -- 2019}
                            {Bachelor of Applied Science in Honours Computer Engineering (with Distinction)}
   \end{rEducationSection}
 \end{rSection}
@@ -48,82 +59,80 @@
 %----------------------------------------------------------------------------------------
 
 \begin{rSection}{Experience}
-  \begin{rEmptyWorkSection}{Cockroach Labs}
+  \begin{rWorkSection}{Cockroach Labs}
                            {Toronto, ON}
-                           {Member of Technical Staff (Core)}
-                           {July '19 -- Present}
-  \end{rEmptyWorkSection}
+                           {Senior Software Engineer (Transactional KV)}
+                           {2019 -- Present}
+  {
+    \item Leading \href{https://www.cockroachlabs.com/blog/admission-control-in-cockroachdb/}{\myuline{admission control}}: overload protection, work prioritization, and inter-tenant fairness
+    \item Built \href{https://www.cockroachlabs.com/blog/rubbing-control-theory/}{\myuline{elastic CPU limiter}} using patched Go, protecting latencies from in-process background work
+    \item Improved \href{https://github.com/cockroachdb/cockroach/blob/4cc60c590a6333afcd0f4cd031f1ae5fb625e2eb/docs/RFCS/20210610_tenant_zone_configs.md}{\myuline{schema count scalability}} from $O$(10k) to $O$(1M), re-architecting for multi-tenancy 
+    \item Worked on \href{https://github.com/cockroachdb/cockroach/issues/95563}{\myuline{flow control}} for quorum writes, 
+      \href{https://github.com/cockroachdb/cockroach/blob/3a6596e/docs/RFCS/20200513_long_running_migrations.md}{\myuline{upgrades}} infrastructure, 
+      \href{https://github.com/cockroachdb/cockroach/pull/55687}{\myuline{bazel-ifying}} monorepo, tracing
+
+    % \item blog posts, interviews, RFCs, CPU attribution, reading group, mentorship (interns, juniors), on call
+  }
+  \end{rWorkSection}
 
   \begin{rWorkSection}{LinkedIn}
                       {Sunnyvale, CA}
                       {Software Engineering Intern (Machine Learning Infrastructure)}
-                      {Sept -- Dec '18}
+                      {2018}
   {
-    \item Worked cross-team on model serving, versioning, runtime environments and
-      deployment systems
-    \item Published designs on model state
-      machines/deployment orchestration across thousands of hosts
-    \item Introduced dynamic request buffering mechanism to mitigate bursty,
-      high-throughput traffic load
+    \item Worked on model serving, versioning, runtime and deployment across
+      thousands of hosts
   }
   \end{rWorkSection}
 
   \begin{rWorkSection}{Amazon}
                      {Palo Alto, CA}
                      {Software Engineering Intern (Search Relevance)}
-                     {Jan -- Apr '18}
+                     {2018}
   {
-    \item Led multiple design reviews for proposals outlining measures to
-      improve barcode search relevance
-    \item Authored query reformulation modules to improve system recall and
-      click-through rate by 2.49\%
-    \item Leveraged sequence-to-sequence learning to generate alternative
-      search suggestions for users
-    \item Incorporated OCR text around barcodes into ranking models to reduce
-      defects/variance in results
+    \item Used sequence-to-sequence learning to generate alternative
+      search suggestions, authored query reformulation modules to improve
+      system recall, and incorporated OCR text into ranking models
   }
   \end{rWorkSection}
 
-  \begin{rDualWorkSection}{Cockroach Labs}
+  \begin{rWorkSection}{Cockroach Labs}
                      {New York, NY}
-                     {Backend Engineering Intern (Storage/Performance)}
-                     {May -- Sept '17}
+                     {Backend Engineering Intern (Storage, Distributed SQL)}
+                     {2016 -- 2017}
   {
-    \item Designed a dedicated persistent state
-      \href{https://github.com/cockroachdb/cockroach/pull/16361}{\underline
-      {storage engine}} for Raft, increased throughput by 14.6\%
-    \item Implemented flow-control mechanisms for writes, significantly
-      reducing 99-th percentile latencies
-    \item Patched
-      \href{https://github.com/coreos/etcd/pull/8288}{\underline{etcd/raft}}'s
-      PreVote extension from the thesis paper, formally
-      \href{https://github.com/irfansharif/raft.tla/commit/22b05818b6bcfe6719a708f2270a1308fecbc0fa}{\underline
-      {verifying}} using TLA\texttt{+}
-    \item Forked
-      \href{https://github.com/irfansharif/grpc-go}{\underline{grpc/grpc-go}},
-      increased throughput by 12.8\% batching syscalls/reducing GC pressure
+    \item Designed dedicated
+      \href{https://github.com/cockroachdb/cockroach/pull/16361}{\myuline
+      {storage engine}} for Raft, contributed to
+      \href{https://github.com/irfansharif/raft.tla/commit/22b05818b6bcfe6719a708f2270a1308fecbc0fa}{\myuline
+      {TLA\texttt{+} verified}} PreVote extension
+    \item Implemented aggregations, sorting, $n$-way
+      \href{https://www.cockroachlabs.com/blog/better-sql-joins-in-cockroachdb/}
+      {\myuline{parallel joins}}, and row de-duplications for
+      \href{https://github.com/cockroachdb/cockroach/blob/master/docs/RFCS/20160421_distributed_sql.md}{\myuline{query engine}}
   }
-  {Backend Engineering Intern (Distributed SQL)}
-  {Aug -- Dec '16}
-  {
-     \item Constructed core components of new distributed query
-       \href{https://github.com/cockroachdb/cockroach/blob/master/docs/RFCS/20160421_distributed_sql.md}
-       {\underline{execution engine}}, including distributed aggregations, sort
-       algorithms, row-deduplications, and performant $n$-way
-       \href{https://www.cockroachlabs.com/blog/better-sql-joins-in-cockroachdb/}
-       {\underline{parallel SQL joins}}
-  }
-  \end{rDualWorkSection}
+  \end{rWorkSection}
 
   \begin{rWorkSection}{Shopify}
                      {Ottawa, ON}
                      {Production Engineering Intern (Infrastructure)}
-                     {Jan -- Apr '16}
+                     {2016}
   {
     \item Built an auto-scaling build system with dynamic workload distribution
-      handling 1,000\texttt{+} builds/day
+      handling 1000\texttt{+} builds/day
   }
   \end{rWorkSection}
+\end{rSection}
+
+\begin{rSection}{Publications}
+\vspace{-2.3em}
+\nocite{*}
+  \begingroup
+  \renewcommand
+  \refname{}
+    \bibliographystyle{unsrt}
+    \bibliography{resume}
+  \endgroup
 \end{rSection}
 
 %----------------------------------------------------------------------------------------
@@ -131,11 +140,13 @@
 %----------------------------------------------------------------------------------------
 
 \begin{rSection}{Research}
-  \begin{rResearchSection}{Computer Aided Reasoning Lab}
+  \begin{rResearchSection}{Waterloo Artificial Intelligence Institute}
                      {(SAT/SMT solvers)}
-                     {Oct -- Dec '16}
-   \item Researched search space pruning, clustering and
-     parallelization strategies with Prof. Vijay Ganesh
+                     {2016}
+   \item Studied search space pruning, clustering and
+     parallelization techniques under
+     \href{https://uwaterloo.ca/electrical-computer-engineering/profile/vganesh}{\myuline{Prof.
+     Vijay Ganesh}}
   \end{rResearchSection}
 \end{rSection}
 
@@ -146,21 +157,16 @@
 \begin{rSection}{Projects}
   \begin{rProjectSection}
     \item \textbf {Kura} -- An E2EE, synchronized, distributed
-      \href{https://github.com/kurafs/kura}{\underline{file system}} with
+      \href{https://github.com/kurafs/kura}{\myuline{file system}} with
       live-sharing and file streaming
-    \item \textbf {CFilter} -- Cuckoo Filter implementation with 730\texttt{+}
+    \item \textbf {Solver} --
+      \href{https://github.com/irfansharif/solver}{\myuline{SAT solver}}
+      library in Go (wraps around Google's Operational Research Tools)
+    \item \textbf {CFilter} -- Cuckoo Filter implementation with 770\texttt{+}
       stars and 35\texttt{+} forks on
-      \href{https://github.com/irfansharif/cfilter}{\underline {GitHub}}
+      \href{https://github.com/irfansharif/cfilter}{\myuline{GitHub}}
   \end{rProjectSection}
-
-  \begin{rBlurbSection}
-    \item {\em Open-source contributions:}
-      \href{https://github.com/coreos/etcd/pull/8288}{\textbf{coreos/etcd}},
-      \href{https://github.com/grpc/grpc-go/pull/1478}{\textbf{grpc/grpc-go}},
-      \href{https://github.com/uber/go-torch/pull/62}{\textbf{uber/go-torch}},
-      \href{https://rubygems.org/gems/cerebrum}{\textbf{cerebrum}},
-      \href{https://rubygems.org/gems/mqueue}{\textbf{mqueue}}
-  \end{rBlurbSection}
 \end{rSection}
+
 
 \end{document}

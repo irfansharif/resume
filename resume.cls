@@ -17,7 +17,6 @@
 \usepackage{array}                    % required for boldface tabular columns
 \usepackage{ifthen}
 
-\nofiles                            % .aux files are not needed for resumes
 \pagestyle{empty}                   % resumes do not need page numbers
 
 %----------------------------------------------------------------------------------------
@@ -93,7 +92,7 @@
   \item[]
   }{
   \end{list}
-  \vspace{0.5em}
+  \vspace{0.0em}
 }
 
 \newenvironment{rSummarySection}[1]{
@@ -102,7 +101,7 @@
   \itemsep -0.5em \vspace{-0.5em}
     {#1}
   \end{list}
-  \vspace{0.1em}
+  \vspace{0.0em}
 }
 
 \newenvironment{rEducationSection}[3]{
@@ -133,7 +132,7 @@
   \itemsep -0.5em \vspace{-0.5em}
   {#5}
   \end{list}
-  \vspace{0.1em}
+  \vspace{0.0em}
 }
 
 \newenvironment{rDualWorkSection}[8]{
@@ -156,7 +155,7 @@
   \itemsep -0.5em \vspace{-0.5em}
   {#8}
   \end{list}
-  \vspace{0.1em}
+  \vspace{0.0em}
 }
 
 \newenvironment{rEmptyWorkSection}[4]{
@@ -168,7 +167,7 @@
   \ifthenelse{\equal{#3}{}}{}{
     \\
     {\em #3}                 \hfill                  { #4}
-  }\vspace{0.1em}
+  }\vspace{0.0em}
 }
 
 \newenvironment{rResearchSection}[3]{
@@ -181,7 +180,7 @@
   \itemsep -0.5em \vspace{-0.5em}
   }{
   \end{list}
-  \vspace{0.1em}
+  \vspace{0.0em}
 }
 
 \newenvironment{rProjectSection}[0]{
@@ -200,7 +199,7 @@
   \itemsep -0.5em \vspace{-0.0em}
   }{
   \end{list}
-  \vspace{0.1em}
+  \vspace{0.0em}
 }
 
 \def\namesize{\huge}

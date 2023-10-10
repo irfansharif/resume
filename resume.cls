@@ -183,6 +183,16 @@
   \vspace{0.0em}
 }
 
+\newenvironment{rEmptyResearchSection}[3]{
+  %%%%%%%%%%%%%%%%%%%%%% Default Layout: %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  %%    Research lab (bold) Topic (emphasis)      Dates (regular)    %%
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  {{\bf #1} {#2}}                 \hfill                  { #3}
+  \smallskip
+  }{
+  \vspace{0.0em}
+}
+
 \newenvironment{rProjectSection}[0]{
   %%%%%%%%%%%%%%%%%%%%%% Default Layout: %%%%%%%%%%%%%%%%%%%%%%%%
   %%    Project (bold)                        URL (emphasis)   %%
